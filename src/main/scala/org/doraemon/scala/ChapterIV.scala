@@ -1,5 +1,6 @@
 package org.doraemon.scala
 
+import scala.collection.JavaConverters.propertiesAsScalaMap
 import scala.collection.mutable
 import scala.io.Source
 
@@ -25,7 +26,21 @@ class ChapterIV {
   }
 
   def system() = {
-    val entrySet = System.getProperties().entrySet();
+    val props: scala.collection.Map[String, String] = {
+      propertiesAsScalaMap(System.getProperties)
+    }
+    val keys = props.keySet
+    val keyLengths = for (key <- keys) yield {
+      key.length
+    }
+    val maxKeyLength = keyLengths.max
+
+    for (key <- keys) {
+      print(key)
+      print(" " * (maxKeyLength - key.length))
+      print(" | ")
+      println(props(key))
+    }
   }
 
   def minmax(array: Array[Int]) = {
@@ -41,5 +56,7 @@ class ChapterIV {
     println("Hello".zip("World"))
   }
 
-  
+  def main(args: Array[String]): Unit = {
+
+  }
 }
