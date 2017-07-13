@@ -24,4 +24,22 @@ class ChapterIV {
     println(map.mkString(",")) // 用","来作为打印map中元素的分隔符
   }
 
+  def system() = {
+    val entrySet = System.getProperties().entrySet();
+  }
+
+  def minmax(array: Array[Int]) = {
+    (array.min, array.max)
+  }
+
+  def Iteqgt(values: Array[Int], v: Int) = {
+    (values.count(_ < v), values.count(_ == v), values.count(_ > v))
+  }
+
+
+  def zipString() = {
+    println("Hello".zip("World"))
+  }
+
+  
 }
