@@ -14,7 +14,7 @@ class Counter {
   def current() = value
 }
 
-class BankAccount {
+class BankAccountA {
   val balance = ()
 
   def deposit(): Unit = {}
